@@ -1,0 +1,24 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/nss-evening-cohort-3/movie-history-group-project-scenesters",
+  "authors": [
+    "jkillz2020 <kilgore.josh@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "jquery": "^2.2.4",
+    "Materialize": "materialize#^0.97.6",
+    "gulp": "^3.9.1",
+    "angularfire": "^2.0.1"
+  }
+}
