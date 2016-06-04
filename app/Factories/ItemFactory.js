@@ -1,23 +1,23 @@
-app.factory("itemStorage", function($q, $http, firebaseURL, omdbURL){
+app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
 
-  var getItemList = function(){
-      let items = [];
+  var getMovieList = function(){
+      let movies = [];
       return $q(function(resolve, reject){
         $http.get(`${omdbURL}?s=Star&y=&r=json`)
-          .success(function(itemObject){
-            console.log("itemObject", itemObject);
-            var itemCollection = itemObject;
+          .success(function(movieObject){
+            console.log("movieObject", movieObject);
+            var movieCollection = movieObject;
             // var itemCollection = itemObject.items;
-            Object.keys(itemCollection).forEach(function(key){
-              itemCollection[key].id=key;
-              items.push(itemCollection[key]);
+            Object.keys(movieCollection).forEach(function(key){
+              movieCollection[key].id=key;
+              movies.push(movieCollection[key]);
             })
-            console.log("items", items);
-            resolve(items);
+            console.log("movies", movies);
+            resolve(movies);
           }, function(error){
             reject(error);
       })
     })};
 
-  return {getItemList:getItemList}
+  return {getMovieList:getMovieList}
 })
