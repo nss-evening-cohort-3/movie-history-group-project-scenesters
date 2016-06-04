@@ -8,7 +8,7 @@
 </head>
 
 <!-- apps name needs to go here!!!:  -->
-<body ng- app="what's the app's name?">
+<body ng-app="MovieHistoryApp">
 
 <!-- NavBar from Materialize - soon to be moved to its own partial -->
 <nav>
@@ -43,7 +43,7 @@
   </div>
 
   <!-- <div ng-include="./partials/nav-bar.html"></div> -->
-
+<div ng-view>
   <!-- Libraries: -->
   <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
@@ -51,11 +51,15 @@
   <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
   <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
   <script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+  <script type="text/javascript" src="app/app.js"></script>
     <!-- App:  -->
   <script type="text/javascript" src="app/app.js"></script>
 <!-- Factories -->
+  <script type="text/javascript" src="app/Factories/ItemFactory.js"></script>
+
 <!-- Controllers -->
-<script type="text/javascript" src="MovieViewCtrl.js"></script>
+
+  <script type="text/javascript" src="app/controllers/MovieViewCtrl.js"></script>
 
 
 </body>

@@ -1,6 +1,6 @@
 var app = angular.module("MovieHistoryApp", ["ngRoute"])
-  .constant("firebaseURL","https://movie-scenesters.firebaseio.com/");
-
+  .constant("firebaseURL","https://movie-scenesters.firebaseio.com/")
+  .constant("omdbURL", "http://www.omdbapi.com/");
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   if(AuthFactory.isAuthenticated()){
@@ -11,7 +11,6 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
     reject();
   }
 })
-
 
 app.config(function($routeProvider){
   $routeProvider.
@@ -25,25 +24,6 @@ app.config(function($routeProvider){
       controller: 'MovieListCtrl',
       resolve: {isAuth}
       }).
-      // when('/movies/new', {
-      //     templateUrl: 'partials/movie-new.html',
-      //     controller: 'MovieNewCtrl',
-      //     resolve: {isAuth}
-      // }).
-      // when('/movies/:movieId', {
-      //     templateUrl: 'partials/movie-details.html',
-      //     controller: "MovieViewCtrl",
-      //     resolve: {isAuth}
-      // }).
-      // when('/movies/:movieId/edit', {
-      //     templateUrl: 'partials/movie-new.html',
-      //     controller: "MovieEditCtrl",
-      //     resolve: {isAuth}
-      // }).
-      // when('/login', {
-      //   templateUrl: 'partials/login.html',
-      //   controller: "LoginCtrl"
-      // }).
       when('/logout', {
         templateUrl: 'partials/login.html',
         controller: "LoginCtrl"
@@ -51,15 +31,16 @@ app.config(function($routeProvider){
       otherwise('/');
 });
 
-app.run(($location) =>{
-  let movieRef = new Firebase("https://movie-scenesters.firebaseio.com/");
+// app.run(($location) =>{
+//   let todoRef = new Firebase("https://movie-scenesters.firebaseio.com/");
 
-  movieRef.onAuth(authData =>{
-    if(!authData){
-      $location.path("/login");
-    }
-  })
-})
+//   todoRef.onAuth(authData =>{
+//     if(!authData){
+//       $location.path("/login");
+//     }
+//   })
+// })
+
 
 
 
