@@ -12,37 +12,17 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
   }
 })
 
-
 app.config(function($routeProvider){
   $routeProvider.
     when('/',{
-      templateUrl: 'partials/movie-list.html',
-      controller: 'MovieViewCtrl',
-      // resolve: {isAuth}
+      templateUrl: 'partials/search-view.html',
+      controller: 'MovieListCtrl',
+      resolve: {isAuth}
       }).
     when('/movies/list',{
       templateUrl: 'partials/movie-list.html',
       controller: 'MovieListCtrl',
       resolve: {isAuth}
-      }).
-      when('/movies/new', {
-          templateUrl: 'partials/movie-new.html',
-          controller: 'MovieNewCtrl',
-          resolve: {isAuth}
-      }).
-      when('/movies/:movieId', {
-          templateUrl: 'partials/movie-details.html',
-          controller: "MovieViewCtrl",
-          resolve: {isAuth}
-      }).
-      when('/movies/:movieId/edit', {
-          templateUrl: 'partials/movie-new.html',
-          controller: "MovieEditCtrl",
-          resolve: {isAuth}
-      }).
-      when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: "LoginCtrl"
       }).
       when('/logout', {
         templateUrl: 'partials/login.html',
@@ -60,6 +40,7 @@ app.config(function($routeProvider){
 //     }
 //   })
 // })
+
 
 
 

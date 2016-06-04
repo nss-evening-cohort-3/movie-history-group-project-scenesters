@@ -12,21 +12,35 @@
 
 <!-- NavBar from Materialize - soon to be moved to its own partial -->
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper deep-purple accent-4">
       <a href="#" class="brand-logo">Scenester - scene and be scene</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Login</a></li>
-        <li><a href="collapsible.html">what?</a></li>
+        <li><a href="sass.html">Search</a></li>
+        <li><a href="badges.html">Logout</a></li><!-- 
+        <li><a href="collapsible.html">what?</a></li> -->
       </ul>
     </div>
   </nav>
 
 <div class="row">
         <div class="col s12 m7">
-        <!-- This is where the content from the partials will be inserted -->
+
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">?</i></a>
         </div>
-</div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">?</i></a>
+        </div>
+      </div>
+      </form>
+  </div>
 
   <!-- <div ng-include="./partials/nav-bar.html"></div> -->
 <div ng-view>
@@ -39,13 +53,14 @@
   <script type="text/javascript" src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
   <script type="text/javascript" src="app/app.js"></script>
     <!-- App:  -->
+  <script type="text/javascript" src="app/app.js"></script>
 <!-- Factories -->
   <script type="text/javascript" src="app/Factories/ItemFactory.js"></script>
 
 <!-- Controllers -->
+
   <script type="text/javascript" src="app/controllers/MovieViewCtrl.js"></script>
 
-  <!-- <script type="" -->
 
 </body>
 </html>
