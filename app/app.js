@@ -16,7 +16,7 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 app.config(function($routeProvider){
   $routeProvider.
     when('/',{
-      templateUrl: 'partials/movie-list.html',
+      templateUrl: 'partials/search-view.html',
       controller: 'MovieListCtrl',
       resolve: {isAuth}
       }).
@@ -25,25 +25,25 @@ app.config(function($routeProvider){
       controller: 'MovieListCtrl',
       resolve: {isAuth}
       }).
-      when('/movies/new', {
-          templateUrl: 'partials/movie-new.html',
-          controller: 'MovieNewCtrl',
-          resolve: {isAuth}
-      }).
-      when('/movies/:movieId', {
-          templateUrl: 'partials/movie-details.html',
-          controller: "MovieViewCtrl",
-          resolve: {isAuth}
-      }).
-      when('/movies/:movieId/edit', {
-          templateUrl: 'partials/movie-new.html',
-          controller: "MovieEditCtrl",
-          resolve: {isAuth}
-      }).
-      when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: "LoginCtrl"
-      }).
+      // when('/movies/new', {
+      //     templateUrl: 'partials/movie-new.html',
+      //     controller: 'MovieNewCtrl',
+      //     resolve: {isAuth}
+      // }).
+      // when('/movies/:movieId', {
+      //     templateUrl: 'partials/movie-details.html',
+      //     controller: "MovieViewCtrl",
+      //     resolve: {isAuth}
+      // }).
+      // when('/movies/:movieId/edit', {
+      //     templateUrl: 'partials/movie-new.html',
+      //     controller: "MovieEditCtrl",
+      //     resolve: {isAuth}
+      // }).
+      // when('/login', {
+      //   templateUrl: 'partials/login.html',
+      //   controller: "LoginCtrl"
+      // }).
       when('/logout', {
         templateUrl: 'partials/login.html',
         controller: "LoginCtrl"
@@ -52,9 +52,9 @@ app.config(function($routeProvider){
 });
 
 app.run(($location) =>{
-  let todoRef = new Firebase("https://movie-scenesters.firebaseio.com/");
+  let movieRef = new Firebase("https://movie-scenesters.firebaseio.com/");
 
-  todoRef.onAuth(authData =>{
+  movieRef.onAuth(authData =>{
     if(!authData){
       $location.path("/login");
     }
