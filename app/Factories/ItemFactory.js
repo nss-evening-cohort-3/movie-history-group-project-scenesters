@@ -1,9 +1,9 @@
 app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
 
-  var getMovieList = function(){
+  var getMovieList = function(mo){
       let movies = [];
       return $q(function(resolve, reject){
-        $http.get(`${omdbURL}?s=Star&y=&r=json`)
+        $http.get(`${omdbURL}?s=${mo}&y=&r=json`)
           .success(function(movieObject){
             console.log("movieObject", movieObject);
             var movieCollection = movieObject;
