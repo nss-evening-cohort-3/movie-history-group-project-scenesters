@@ -1,38 +1,31 @@
 <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Search" type="text" class="validate searchDatabase" ng-model="databaseSearch">
-          <label for="first_name">Search Movies</label>
-          <a class="btn-floating btn-large waves-effect waves-light red" ng-click="searchMovieDatabase()"><i class="material-icons">?</i></a>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Search You Movies</label>
-          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">?</i></a>
-        </div>
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Search" type="text" class="validate searchDatabase" ng-model="databaseSearch">
+        <label for="first_name">Search Movies</label>
+        <a class="btn-floating btn-large waves-effect waves-light red" ng-click="searchMovieDatabase()"><i class="material-icons">?</i></a>
       </div>
-      </form>
-  </div>
+      <div class="input-field col s6">
+        <input id="last_name" type="text" class="validate">
+        <label for="last_name">Search Your Movies</label>
+        <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">?</i></a>
+      </div>
+    </div>
+  </form>
+</div>
 
 <div class="row">
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-            </div>
-            <div class="card-content">
-             <div ng-repeat="Info in movies[0]">
-                  <img src={{Info.Poster}}>
-                  <h5>{{Info.Title}}</h5>
-                  <h5> {{Info.Year}}</h5>
-            </div>
-            </div>
+  <div class="col s12 m3">
+    <div class="card">
+      <!-- <div class="card-image">
+      </div> -->
+      <div class="card-content">
+       <div ng-repeat="Info in movies[0]">
+        <img src={{Info.Poster}}>
+        <h5>{{Info.Title}}</h5>
+        <h5> {{Info.Year}}</h5>
+        <a class="btn-floating btn-large waves-effect waves-light red addMovie" ng-click ="postNewMovie(Info)"><i class="material-icons">Add</i></a>
+        <div class="card-action">
+         
 
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">X</i></a>
-            <div class="card-action">
-            <!-- Instead of a link, needs to be a rating mechanism!! -->
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-      </div>
