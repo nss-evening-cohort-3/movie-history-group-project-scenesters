@@ -9,6 +9,7 @@
 
 <!-- apps name needs to go here!!!:  -->
 <body ng-app="MovieHistoryApp">
+<!-- <div ng-include="'./partials/movie-list.html'"></div> -->
 
 <!-- NavBar from Materialize - soon to be moved to its own partial -->
 <nav>
@@ -22,28 +23,10 @@
     </div>
   </nav>
 
-<div class="row">
-        <div class="col s12 m7">
-
-<div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">?</i></a>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-          <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">?</i></a>
-        </div>
-      </div>
-      </form>
-  </div>
 
   <!-- <div ng-include="./partials/nav-bar.html"></div> -->
-<div ng-view>
+<div ng-view></div>
+
   <!-- Libraries: -->
   <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
@@ -59,7 +42,7 @@
 
 <!-- Controllers -->
 
-  <script type="text/javascript" src="app/controllers/MovieViewCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/MovieListCtrl.js"></script>
 
 
 </body>
