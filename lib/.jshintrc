@@ -3,4 +3,8 @@
     "esversion": 6,
     "globalstrict": true,
     "jquery": true,
+    "globals": { 
+    "$": true,
+    "app": true
+  }
 } 
