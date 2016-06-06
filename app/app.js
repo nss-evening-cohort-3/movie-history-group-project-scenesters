@@ -21,7 +21,7 @@ app.config(function($routeProvider){
       }).
     when('/movies/list',{
       templateUrl: 'partials/movie-list.html',
-      controller: 'MovieListCtrl',
+      controller: 'MovieWatchCtrl',
       // resolve: {isAuth}
       }).
       when('/logout', {

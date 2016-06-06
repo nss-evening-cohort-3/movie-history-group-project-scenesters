@@ -1,21 +1,27 @@
-"use strict";
+// "use strict";
 app.controller("MovieWatchCtrl", function($scope, $routeParams, movieStorage) {
-var postNewMovie = function(newMovie) {
-  return $q(function(resolve, reject){
-    $http.post(
-        firebaseURL + "movie-scenesters.json",
-        JSON.stringify({
-          poster: newMovie.poster,
-          title: newMovie.title,
-          year: newMovie.year,
-          rating: newMovie.rating
-          uid: user.id
-        })
-      )
-        .success(
-          function(objectFromFirebase) {
-            resolve(objectFromFirebase);
-          });
-  });
-}; 
-}
+  // $scope.title = "New Item";
+  // $scope.submitButtonText = "Save";
+  var movieObject = {};
+
+  // $scope.addMovie = function(){
+    // alert("sdsdd");
+    // movieObject.title = $scope.title;
+    // abObject.poster = $scope.poster;
+    // abObject.street = $scope.street;
+    // abObject.city = $scope.city;
+    // abObject.state = $scope.state;
+    // abObject.zipCode = $scope.zipCode;
+    // abObject.pNum = $scope.pNum;
+    // abObject.notes = $scope.notes;
+    // console.log("abObject", abObject);
+    // addressStorage.postNewAddress(abObject)
+    // .then(function successCallback(response){
+    //     console.log(response);
+    //     $location.url("/items/list");
+    // });
+    // console.log("abObject", abObject);
+    // $scope.clear();
+    // console.log("info", info);
+  // };
+});
