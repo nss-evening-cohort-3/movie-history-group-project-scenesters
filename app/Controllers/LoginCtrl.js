@@ -37,7 +37,7 @@ app.controller("LoginCtrl", function($scope, $rootScope, $location, firebaseURL,
     AuthFactory
       .authenticate($scope.account)
       .then(() => {
-        // $scope.hasUser = true;
+        $scope.hasUser = true;
         $rootScope.isActive = true;
         $location.path("/");
         $scope.$apply();
