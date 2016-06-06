@@ -23,6 +23,10 @@ app.config(function($routeProvider){
       templateUrl: 'partials/movie-list.html',
       controller: 'MovieListCtrl',
        resolve: {isAuth}
+     }).
+    when('/login', {
+        templateUrl: 'partials/login.html',
+        controller: "LoginCtrl"
       }).
       when('/logout', {
         templateUrl: 'partials/login.html',
