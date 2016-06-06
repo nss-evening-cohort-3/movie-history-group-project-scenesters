@@ -21,11 +21,15 @@
       <!-- <div class="card-image">
       </div> -->
       <div class="card-content">
-       <div ng-repeat="Info in movies[0]">
-        <img src={{Info.Poster}}>
-        <h5>{{Info.Title}}</h5>
-        <h5> {{Info.Year}}</h5>
-        <a class="btn-floating btn-large waves-effect waves-light red addMovie" ng-click ="postNewMovie(Info)"><i class="material-icons">Add</i></a>
-        <div class="card-action">
-         
-
+        <div ng-repeat="Info in movies[0]">
+          <img src={{Info.Poster}}>
+          <h5>{{Info.Title}}</h5>
+          <h5> {{Info.Year}}</h5>
+          <a class="btn-floating btn-large waves-effect waves-light red addMovie" ng-click ="addMovie(Info)"><i class="material-icons">Add</i></a>
+          <div class="card-action">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

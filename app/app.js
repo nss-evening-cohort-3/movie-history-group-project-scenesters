@@ -18,15 +18,16 @@ app.config(function($routeProvider){
       templateUrl: 'partials/movie-list.html',
       controller: 'MovieListCtrl',
        resolve: {isAuth}
-      }).
+    }).
     when('/movies/list',{
       templateUrl: 'partials/movie-list.html',
       controller: 'MovieListCtrl',
        resolve: {isAuth}
      }).
-    when('/login', {
+      when('/login', {
         templateUrl: 'partials/login.html',
         controller: "LoginCtrl"
+      
       }).
       when('/logout', {
         templateUrl: 'partials/login.html',
@@ -34,6 +35,7 @@ app.config(function($routeProvider){
       }).
       otherwise('/');
 });
+
 
 app.run(($location) =>{
   let todoRef = new Firebase("https://movie-scenesters.firebaseio.com/");
@@ -44,6 +46,7 @@ app.run(($location) =>{
     }
   })
 })
+
 
 
 
