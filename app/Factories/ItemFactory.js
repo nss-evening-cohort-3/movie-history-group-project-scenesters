@@ -19,5 +19,26 @@ app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
       })
     })};
 
-  return {getMovieList:getMovieList}
+  var postNewMovie = function(newMovie) {
+  console.log("qwerttreweq", newMovie);
+  return $q(function(resolve, reject){
+    $http.post(
+        firebaseURL + "movie-scenesters.json",
+        JSON.stringify({
+          poster: newMovie.Poster,
+          title: newMovie.Title,
+          year: newMovie.Year,
+          rating: 2,
+          uid: newMovie.imdbID
+          watched: false;
+        })
+      )
+        .success(
+          function(objectFromFirebase) {
+            resolve(objectFromFirebase);
+          });
+  })
+}; 
+
+  return {getMovieList:getMovieList, postNewMovie: postNewMovie}
 })

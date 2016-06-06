@@ -21,7 +21,7 @@ app.config(function($routeProvider){
       }).
     when('/movies/list',{
       templateUrl: 'partials/movie-list.html',
-      controller: 'MovieListCtrl',
+      controller: 'MovieWatchCtrl',
       // resolve: {isAuth}
       }).
       when('/logout', {
@@ -31,15 +31,6 @@ app.config(function($routeProvider){
       otherwise('/');
 });
 
-// app.run(($location) =>{
-//   let todoRef = new Firebase("https://movie-scenesters.firebaseio.com/");
-
-//   todoRef.onAuth(authData =>{
-//     if(!authData){
-//       $location.path("/login");
-//     }
-//   })
-// })
 
 
 
