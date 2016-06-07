@@ -29,8 +29,8 @@ app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
           title: newMovie.Title,
           year: newMovie.Year,
           rating: 2,
-          uid: newMovie.imdbID
-          watched: false;
+          uid: newMovie.imdbID,
+          watched: false
         })
       )
         .success(
