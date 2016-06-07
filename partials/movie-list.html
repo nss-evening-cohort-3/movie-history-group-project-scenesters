@@ -1,31 +1,61 @@
-<div class="row">
   <form class="col s12">
     <div class="row">
       <div class="input-field col s6">
         <input placeholder="Search" type="text" class="validate searchDatabase" ng-model="databaseSearch">
         <label for="first_name">Search Movies</label>
-        <a class="btn-floating btn-large waves-effect waves-light red" ng-click="searchMovieDatabase()"><i class="material-icons">?</i></a>
+        <a class="btn-floating btn-large waves-effect waves-light purple" ng-click="searchMovieDatabase()"><i class="material-icons">?</i></a>
       </div>
       <div class="input-field col s6">
         <input id="last_name" type="text" class="validate">
         <label for="last_name">Search Your Movies</label>
-        <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">?</i></a>
+        <a class="btn-floating btn-large waves-effect waves-light purple"><i class="material-icons">?</i></a>
       </div>
     </div>
   </form>
+
+<div class="container">
+<div class="row">
+    <div class="card" ng-repeat="Info in movies[0]">
+    <div class="col s4 ">
+     <img class="poster" src={{Info.Poster}}>
+      <h6>{{Info.Title}}</h6>
+      <h6>{{Info.Year}}</h6>
+      <a class="btn-floating btn-large waves-effect waves-light purple addMovie" ng-click ="postNewMovie(Info)"><i class="material-icons">Add</i></a>
+      <div class="divider"></div> 
+</div>
+</div>
+</div>
 </div>
 
-<div class="row">
-  <div class="col s12 m3">
-    <div class="card">
-      <!-- <div class="card-image">
-      </div> -->
-      <div class="card-content">
-       <div ng-repeat="Info in movies[0]">
-        <img src={{Info.Poster}}>
-        <h5>{{Info.Title}}</h5>
-        <h5> {{Info.Year}}</h5>
-        <a class="btn-floating btn-large waves-effect waves-light red addMovie" ng-click ="postNewMovie(Info)"><i class="material-icons">Add</i></a>
-        <div class="card-action">
-         
+<!-- <div ng-repeat="thingy in items | filter: searchText">
+    <div class="panel panel-default" ng-hide="thingy.isCompleted">
+        <div class="panel-body">
+            <div class="col-xs-1"> <input type="checkbox" ng-model="thingy.isCompleted" ng-change="inputChange(thingy)"/> </div>
+            <div class="col-xs-7"><a ng-href="#/items/{{thingy.id}}">{{thingy.task}}</a></div>
+            <div class="col-xs-2">{{thingy.dueDate}}</div>
+            <div class="col-xs-1">{{thingy.assignedTo}}</div>
+            <! delete button -->
+            <!-- <div class="col-xs-1"><button class="btn btn-danger" ng-click="itemDelete(thingy.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- 
 
+
+<div class="container">
+<div class="row">
+  <div class="col s4">
+    <div class="card">
+     <div ng-repeat="Info in movies[0]">
+      <img src={{Info.Poster}}>
+      <h5>{{Info.Title}}</h5>
+      <h5> {{Info.Year}}</h5>
+      <a class="btn-floating btn-large waves-effect waves-light red addMovie" ng-click ="postNewMovie(Info)"><i class="material-icons">Add</i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+ -->

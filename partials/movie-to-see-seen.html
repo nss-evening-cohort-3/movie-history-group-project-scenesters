@@ -1,0 +1,21 @@
+<div class="container">
+<div class="row">
+    <div class="card" ng-repeat="Info in movies[0]">
+    <div class="col s4 ">
+     <img class="poster" src={{Info.Poster}}>
+      <h6>{{Info.Title}}</h6>
+      <h6>{{Info.Year}}</h6>
+      <a class="btn-floating btn-large waves-effect waves-light purple addMovie" ng-click ="postNewMovie(Info)"><i class="material-icons">Add</i></a>
+    <select class="icons">
+      <option value="" disabled selected>Rate it</option>
+      <option value="" data-icon="images/sample-1.jpg" class="circle">example 1</option>
+      <option value="" data-icon="images/office.jpg" class="circle">example 2</option>
+      <option value="" data-icon="images/yuna.jpg" class="circle">example 1</option>
+    </select>
+    <label>Images in select</label>
+  </div>
+      <div class="divider"></div> 
+</div>
+</div>
+</div>
+</div>
