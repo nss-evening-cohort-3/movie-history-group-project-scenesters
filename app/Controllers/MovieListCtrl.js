@@ -27,7 +27,7 @@ app.controller("MovieListCtrl", function($scope, $routeParams, movieStorage){
        movieStorage.getMyMovieWatchList().then(function(movieCollection){
       console.log("movieCollection from promise", movieCollection);
       $scope.movieWatchList = movieCollection;
-      console.log("movieObject", $scope.movieWatchList);
+      console.log("movieObject", $scope.movieWatchList[0].poster);
   });
 };
 });
