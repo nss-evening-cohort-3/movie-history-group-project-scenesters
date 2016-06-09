@@ -26,3 +26,16 @@
 </div>
 </div>
 </div>
+<div class="container">
+<div class="row">
+   <div class="card" ng-repeat="Info1 in movieWatchList | filter: watchlistSearch">
+   <div class="col s4 ">
+    <img class="poster" src={{Info1.poster}}>
+     <h6>{{Info1.title}}</h6>
+     <h6>{{Info1.year}}</h6>
+     <a class="btn-floating btn-large waves-effect waves-light purple addMovie" ng-click ="addMovie(Info)"><i class="material-icons">Add</i></a>
+     <div class="divider"></div> 
+</div>
+</div>
+</div>
+</div>
