@@ -2,13 +2,13 @@
    <div class="row">
      <div class="input-field col s6">
        <input placeholder="Search" type="text" class="validate searchDatabase" ng-model="databaseSearch">
-       <label for="first_name">Search Movies</label>
+       <label for="Title">Search Movies</label>
        <a class="btn-floating btn-large waves-effect waves-light purple" ng-click="searchMovieDatabase()"><i class="material-icons">?</i></a>
      </div>
      <div class="input-field col s6">
-       <input id="last_name" type="text" class="validate">
+       <input id="myMovies" type="text" class="validate" ng-model="watchlistSearch">
        <label for="last_name">Search Your Movies</label>
-       <a class="btn-floating btn-large waves-effect waves-light purple" ng-click="searchMovieDatabase()"><i class="material-icons">?</i></a>
+       <a class="btn-floating btn-large waves-effect waves-light purple" ng-click="searchWatchList()"><i class="material-icons">?</i></a>
      </div>
    </div>
  </form>

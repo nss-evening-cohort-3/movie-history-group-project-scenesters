@@ -1,4 +1,4 @@
-app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
+app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL, AuthFactory){
 
   var getMovieList = function(mo){
       let movies = [];
@@ -7,7 +7,6 @@ app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
           .success(function(movieObject){
             console.log("movieObject", movieObject);
             var movieCollection = movieObject;
-            // var itemCollection = itemObject.items;
             Object.keys(movieCollection).forEach(function(key){
               movieCollection[key].id=key;
               movies.push(movieCollection[key]);
@@ -20,6 +19,7 @@ app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
     })};
 
   var postNewMovie = function(newMovie) {
+    let user = AuthFactory.getUser();
   console.log("qwerttreweq", newMovie);
   return $q(function(resolve, reject){
     $http.post(
@@ -29,7 +29,7 @@ app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
           title: newMovie.Title,
           year: newMovie.Year,
           rating: 2,
-          uid: newMovie.imdbID,
+          uid: user.uid,
           watched: false
         })
       )
@@ -40,5 +40,45 @@ app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL){
   })
 }; 
 
-  return {getMovieList:getMovieList, postNewMovie: postNewMovie}
+var getMyMovieWatchList = function(){
+      let movies = [];
+      let user = AuthFactory.getUser();
+      return $q(function(resolve, reject){
+        $http.get(`${firebaseURL}movie-scenesters.json?orderBy="uid"&equalTo="${user.uid}"`)
+          .success(function(movieObject){
+            console.log("movieObject", movieObject);
+            var movieCollection = movieObject;
+            Object.keys(movieCollection).forEach(function(key){
+              movieCollection[key].id=key;
+              movies.push(movieCollection[key]);
+            })
+            console.log("movies", movies);
+            resolve(movies);
+          }, function(error){
+            reject(error);
+      })
+    })};
+  
+  var searchWatchList = function() {
+    let user = AuthFactory.getUser();
+    console.log("search watchlist user", user)
+    return $q(function(resolve, reject){
+      $http.get(`${firebaseURL}movie-scenesters.json?orderBy="uid"&equalTo="${user.uid}"`)
+        .success(function(objectFromFirebase){
+          console.log(objectFromFirebase)
+          var movieCollection = objectFromFirebase;
+          Object.keys(movieCollection).forEach(function(key){
+            movieCollection[key].id=key;
+          });
+          resolve(movies);
+        })
+        .error(function(error){
+          reject(error);
+        });
+    });
+  };
+
+  // }
+
+  return {getMovieList:getMovieList, postNewMovie:postNewMovie, getMyMovieWatchList:getMyMovieWatchList, searchWatchList:searchWatchList}
 })

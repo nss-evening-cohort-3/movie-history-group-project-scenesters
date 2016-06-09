@@ -22,8 +22,14 @@ app.controller("MovieListCtrl", function($scope, $routeParams, movieStorage){
         // $location.url("/items/list");
       });
   }; 
+
+  $scope.searchWatchList = function() { 
+       movieStorage.getMyMovieWatchList().then(function(movieCollection){
+      console.log("movieCollection from promise", movieCollection);
+      $scope.movieWatchList = movieCollection;
+      console.log("movieObject", $scope.movieWatchList);
+  });
+};
 });
-
-
 
 

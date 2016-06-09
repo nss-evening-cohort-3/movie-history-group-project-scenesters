@@ -1,5 +1,5 @@
 // "use strict";
-app.controller("MovieWatchCtrl", function($scope, $routeParams, movieStorage) {
+app.controller("MovieWatchCtrl", function($scope, $routeParams, ItemFactory, movieStorage) {
   // $scope.title = "New Item";
   // $scope.submitButtonText = "Save";
   var movieObject = {};
