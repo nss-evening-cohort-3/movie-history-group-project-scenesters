@@ -3,7 +3,9 @@ app.controller("MovieListCtrl", function($scope, $routeParams, movieStorage){
   $scope.selectedMovie = {};
 
   $scope.searchMovieDatabase = function() {
-    console.log($scope.databaseSearch); 
+    console.log($scope.databaseSearch);
+    $scope.test1 = false;
+    $scope.test2 = true;
      movieStorage.getMovieList($scope.databaseSearch).then(function(movieCollection){
     console.log("movieCollection from promise", movieCollection);
     $scope.movies = movieCollection;
@@ -24,7 +26,9 @@ app.controller("MovieListCtrl", function($scope, $routeParams, movieStorage){
   }; 
 
   $scope.searchWatchList = function() { 
-       movieStorage.getMyMovieWatchList().then(function(movieCollection){
+      $scope.test1 = true;
+      $scope.test2 = false;
+      movieStorage.getMyMovieWatchList().then(function(movieCollection){
       console.log("movieCollection from promise", movieCollection);
       $scope.movieWatchList = movieCollection;
       console.log("movieObject", $scope.movieWatchList[0].poster);
