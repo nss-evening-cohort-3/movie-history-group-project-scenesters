@@ -1,4 +1,4 @@
-app.controller("MovieListCtrl", function($scope, $routeParams, movieStorage){
+app.controller('MovieListCtrl', function($scope, $routeParams, movieStorage){
   $scope.movies=[];
   $scope.selectedMovie = {};
 
@@ -34,6 +34,17 @@ app.controller("MovieListCtrl", function($scope, $routeParams, movieStorage){
       console.log("movieObject", $scope.movieWatchList[0].poster);
   });
 };
-});
+
+  $scope.checkWatchList = function() {
+    if ($scope.movieCollection.length > 0 && $scope.movieCollection !== undefined) {
+
+      return false;
+      }
+    else {
+      return true;
+    }
+  }
+
+  });
 
 

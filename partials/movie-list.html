@@ -5,7 +5,7 @@
        <label for="Title">Search Movies</label>
        <a class="btn-floating btn-large waves-effect waves-light purple" ng-click="searchMovieDatabase()"><i class="material-icons">?</i></a>
      </div>
-     <div class="input-field col s6">
+     <div ng-hide="checkWatchList()" class="input-field col s6">
        <input id="myMovies" type="text" class="validate" ng-model="watchlistSearch">
        <label for="last_name">Search Your Movies</label>
        <a class="btn-floating btn-large waves-effect waves-light purple" ng-click="searchWatchList()"><i class="material-icons">?</i></a>
@@ -33,7 +33,7 @@
     <img class="poster" src={{Info1.poster}}>
      <h6>{{Info1.title}}</h6>
      <h6>{{Info1.year}}</h6>
-     <a class="btn-floating btn-large waves-effect waves-light purple addMovie" ng-click ="addMovie(Info)"><i class="material-icons">Add</i></a>
+     <a ng-hide="!(info1 | filter:movieWatchList).length" class="btn-floating btn-large waves-effect waves-light purple addMovie" ng-click ="addMovie(Info)"><i class="material-icons">Add</i></a>
      <div class="divider"></div> 
 </div>
 </div>
