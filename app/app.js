@@ -39,6 +39,7 @@ app.config(function($routeProvider){
 
 app.run(($location) =>{
   let todoRef = new Firebase("https://movie-scenesters.firebaseio.com/");
+  todoRef.unauth();
 
   todoRef.onAuth(authData =>{
     if(!authData){
