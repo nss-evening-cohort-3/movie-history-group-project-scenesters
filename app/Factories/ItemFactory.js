@@ -46,7 +46,7 @@ var getMyMovieWatchList = function(){
       return $q(function(resolve, reject){
         $http.get(`${firebaseURL}movie-scenesters.json?orderBy="uid"&equalTo="${user.uid}"`)
           .success(function(movieObject){
-            console.log("movieObject", movieObject);
+            // console.log("movieObject", movieObject);
             var movieCollection = movieObject;
             Object.keys(movieCollection).forEach(function(key){
               movieCollection[key].id=key;
@@ -59,26 +59,35 @@ var getMyMovieWatchList = function(){
       })
     })};
   
-  var searchWatchList = function() {
-    let user = AuthFactory.getUser();
-    console.log("search watchlist user", user)
-    return $q(function(resolve, reject){
-      $http.get(`${firebaseURL}movie-scenesters.json?orderBy="uid"&equalTo="${user.uid}"`)
-        .success(function(objectFromFirebase){
-          console.log(objectFromFirebase)
-          var movieCollection = objectFromFirebase;
-          Object.keys(movieCollection).forEach(function(key){
-            movieCollection[key].id=key;
-          });
-          resolve(myMovies);
-        })
-        .error(function(error){
-          reject(error);
+  // var searchWatchList = function() {
+  //   let user = AuthFactory.getUser();
+  //   console.log("search watchlist user", user)
+  //   return $q(function(resolve, reject){
+  //     $http.get(`${firebaseURL}movie-scenesters.json?orderBy="uid"&equalTo="${user.uid}"`)
+  //       .success(function(objectFromFirebase){
+  //         console.log(objectFromFirebase)
+  //         var movieCollection = objectFromFirebase;
+  //         Object.keys(movieCollection).forEach(function(key){
+  //           movieCollection[key].id=key;
+  //         });
+  //         resolve(movieCollection);
+  //       })
+  //       .error(function(error){
+  //         reject(error);
+  //       });
+  //   });
+  // };
+
+var deleteMovie = function(movieId) {
+        return $q(function(resolve, reject) {
+            $http
+                .delete(firebaseURL + "movie-scenesters/" + movieId + ".json")
+                .success(function(objectFromFirebase) {
+                  console.log("this array after the delete", objectFromFirebase)
+                    resolve(objectFromFirebase)
+                });
         });
-    });
-  };
+};
 
-  // }
-
-  return {getMovieList:getMovieList, postNewMovie:postNewMovie, getMyMovieWatchList:getMyMovieWatchList, searchWatchList:searchWatchList}
+  return {getMovieList:getMovieList, postNewMovie:postNewMovie, getMyMovieWatchList:getMyMovieWatchList, deleteMovie:deleteMovie}
 })
