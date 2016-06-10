@@ -1,6 +1,9 @@
 app.controller('MovieListCtrl', function($scope, $routeParams, movieStorage){
   $scope.movies=[];
+  $scope.myMovies = [];
   $scope.selectedMovie = {};
+  $scope.movieCollection = [];
+  $scope.movieWatchList = [];
 
   $scope.searchMovieDatabase = function() {
     console.log($scope.databaseSearch);
@@ -29,21 +32,22 @@ app.controller('MovieListCtrl', function($scope, $routeParams, movieStorage){
       $scope.test1 = true;
       $scope.test2 = false;
       movieStorage.getMyMovieWatchList().then(function(movieCollection){
-      console.log("movieCollection from promise", movieCollection);
+      console.log("movieStorage", movieStorage);
       $scope.movieWatchList = movieCollection;
-      console.log("movieObject", $scope.movieWatchList[0].poster);
+      console.log("movieCollection", $scope.movieCollection);
   });
 };
 
   $scope.checkWatchList = function() {
-    if ($scope.movieCollection.length > 0 && $scope.movieCollection !== undefined) {
-
+    if ($scope.movieWatchList.length > 0 && $scope.movieWatchList !== undefined) {
+        console.log($scope.movieWatchList);
       return false;
       }
     else {
       return true;
     }
   }
+$scope.searchWatchList();
 
   });
 

@@ -41,7 +41,7 @@ app.factory("movieStorage", function($q, $http, firebaseURL, omdbURL, AuthFactor
 }; 
 
 var getMyMovieWatchList = function(){
-      let movies = [];
+      let myMovies = [];
       let user = AuthFactory.getUser();
       return $q(function(resolve, reject){
         $http.get(`${firebaseURL}movie-scenesters.json?orderBy="uid"&equalTo="${user.uid}"`)
@@ -50,10 +50,10 @@ var getMyMovieWatchList = function(){
             var movieCollection = movieObject;
             Object.keys(movieCollection).forEach(function(key){
               movieCollection[key].id=key;
-              movies.push(movieCollection[key]);
+              myMovies.push(movieCollection[key]);
             })
-            console.log("movies", movies);
-            resolve(movies);
+            console.log("myMovies", myMovies);
+            resolve(myMovies);
           }, function(error){
             reject(error);
       })
@@ -70,7 +70,7 @@ var getMyMovieWatchList = function(){
           Object.keys(movieCollection).forEach(function(key){
             movieCollection[key].id=key;
           });
-          resolve(movies);
+          resolve(myMovies);
         })
         .error(function(error){
           reject(error);
