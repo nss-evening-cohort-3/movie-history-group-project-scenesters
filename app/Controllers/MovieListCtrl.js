@@ -28,8 +28,16 @@ $scope.deleteMovie = function(movieId){
         });
       };
 
+  $scope.inputMovieChange = function(movieId) {
+        movieId.rating = $scope.rating;
+        console.log("rating", $scope.rating);
+        movieStorage.updateMovie(movieId)
+        .then(function(response){
+            // console.log(response);
+        })
+      } 
+
   $scope.addMovie = function(newMovie) {
-    console.log("newMovie", newMovie);
     movieStorage.postNewMovie(newMovie)
       .then(function successCallback(response){
         // console.log(response);
@@ -59,5 +67,3 @@ $scope.deleteMovie = function(movieId){
 $scope.searchWatchList();
 
   });
-
-
