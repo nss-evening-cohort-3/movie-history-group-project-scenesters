@@ -58,25 +58,27 @@ var getMyMovieWatchList = function(){
             reject(error);
       })
     })};
-  
-  // var searchWatchList = function() {
-  //   let user = AuthFactory.getUser();
-  //   console.log("search watchlist user", user)
-  //   return $q(function(resolve, reject){
-  //     $http.get(`${firebaseURL}movie-scenesters.json?orderBy="uid"&equalTo="${user.uid}"`)
-  //       .success(function(objectFromFirebase){
-  //         console.log(objectFromFirebase)
-  //         var movieCollection = objectFromFirebase;
-  //         Object.keys(movieCollection).forEach(function(key){
-  //           movieCollection[key].id=key;
-  //         });
-  //         resolve(movieCollection);
-  //       })
-  //       .error(function(error){
-  //         reject(error);
-  //       });
-  //   });
-  // };
+
+var updateMovie = function(movieId) {
+                   console.log("movieId.rating", movieId.rating);
+        return $q(function(resolve, reject) {
+            $http.put(
+                firebaseURL + "movie-scenesters/" + movieId.id + ".json",
+                JSON.stringify({
+                  poster: movieId.poster,
+                  title: movieId.title,
+                  year: movieId.year,
+                  rating: movieId.rating,
+                  uid: movieId.uid,
+                  watched: true
+                })
+        )
+            .success(
+                function(objectFromFirebase) {
+                    resolve(objectFromFirebase);    
+      })
+      })
+        }   
 
 var deleteMovie = function(movieId) {
         return $q(function(resolve, reject) {
@@ -89,5 +91,5 @@ var deleteMovie = function(movieId) {
         });
 };
 
-  return {getMovieList:getMovieList, postNewMovie:postNewMovie, getMyMovieWatchList:getMyMovieWatchList, deleteMovie:deleteMovie}
+  return {getMovieList:getMovieList, postNewMovie:postNewMovie, getMyMovieWatchList:getMyMovieWatchList, deleteMovie:deleteMovie, updateMovie:updateMovie}
 })

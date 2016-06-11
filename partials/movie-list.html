@@ -33,6 +33,16 @@
       <img class="poster" src={{Info1.poster}}>
       <h6>{{Info1.title}}</h6>
       <h6>{{Info1.year}}</h6>
+       <div class="row">
+      <label>Browser Select</label>
+  <select class="browser-default" ng-change="inputMovieChange(Info1)" ng-model="rating">
+    <option value="" disabled selected>Choose your rating</option>
+    <option value="1">1 Star</option>
+    <option value="2">2 Star</option>
+    <option value="3">3 Star</option>
+  </select>
+  </div>
+  <!-- Delete Button -->
       <a class="btn-floating btn-large waves-effect waves-light purple deleteMovie" ng-click ="deleteMovie(Info1.id)"><i class="material-icons">X</i></a>
       <div class="divider"></div> 
     </div>
